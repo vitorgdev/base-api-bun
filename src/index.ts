@@ -1,7 +1,11 @@
 import { Elysia } from "elysia";
 import routes from "./router/index.routes"
+import connect from "./config/database";
+
 
 const app = new Elysia();
+
+connect();
 
 app.get("/", () => "Hello Elysia");
 

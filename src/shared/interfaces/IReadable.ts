@@ -1,5 +1,5 @@
 export interface IReadable {
-    getAll(): string;
+    getAll(): Promise<object[]>;
     getOne(): string;
   }
   

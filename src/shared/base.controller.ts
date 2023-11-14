@@ -2,8 +2,8 @@ import { IReadable } from "./interfaces/IReadable";
 import { IWritable } from "./interfaces/IWritable";
 
 export abstract class BaseController implements IReadable, IWritable {
-  getAll(): string {
-    return "getAll base implementation";
+  async getAll(): Promise<object[]> {
+    return await [{}];
   }
 
   getOne(): string {
