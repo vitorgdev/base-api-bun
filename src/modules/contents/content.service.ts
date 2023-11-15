@@ -1,14 +1,15 @@
+import { PaginateResult } from 'mongoose'
 import { IContent } from './content.interface'
 import ContentRepository from './content.repository'
 
 const contentRepository = new ContentRepository()
 
 export default class ContentService {
-  public async getAll(): Promise<IContent[]> {
+  public async getAll(): Promise<PaginateResult<IContent>> {
     return await contentRepository.getAll()
   }
 
-  public async getById(id: string): Promise<IContent> {
+  public async getById(id: string): Promise<IContent | null> {
     return await contentRepository.getById(id)
   }
 
@@ -16,7 +17,7 @@ export default class ContentService {
     return await contentRepository.create(content)
   }
 
-  public async update(id: string, content: IContent): Promise<IContent> {
+  public async update(id: string, content: IContent): Promise<IContent | null> {
     return await contentRepository.update(id, content)
   }
 

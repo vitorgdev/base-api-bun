@@ -1,14 +1,13 @@
 import { BaseController } from "../../shared/base.controller";
-import { IContent } from "./content.interface";
+import { IContentPaginate } from "./content.interface";
 import ContentService from "./content.service";
 
 const contentService = new ContentService();
 
 class ContentController extends BaseController {
-  public async getAll(): Promise<IContent[]> {
-    console.log("teste");
-
-    return await contentService.getAll();
+  public async getAll(): Promise<IContentPaginate> {
+    const contents = await contentService.getAll();
+    return contents;
   }
 }
 

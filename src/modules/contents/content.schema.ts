@@ -1,5 +1,6 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 import { IContent } from "./content.interface";
+import paginate from "mongoose-paginate-v2";
 
 const ContentSchema: Schema = new mongoose.Schema(
   {
@@ -37,4 +38,9 @@ const ContentSchema: Schema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model<IContent>("Content", ContentSchema);
+ContentSchema.plugin(paginate);
+
+export default mongoose.model<IContent, mongoose.PaginateModel<IContent>>(
+  "Content",
+  ContentSchema
+);

@@ -1,9 +1,10 @@
+import { PaginateResult } from "mongoose";
 import { IReadable } from "./interfaces/IReadable";
 import { IWritable } from "./interfaces/IWritable";
 
 export abstract class BaseController implements IReadable, IWritable {
-  async getAll(): Promise<object[]> {
-    return await [{}];
+  async getAll(): Promise<PaginateResult<Object>> {
+    return {} as PaginateResult<Object>;
   }
 
   getOne(): string {

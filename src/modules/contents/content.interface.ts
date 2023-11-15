@@ -1,4 +1,4 @@
-import mongoose, { Document } from "mongoose";
+import mongoose, { Document, PaginateResult } from "mongoose";
 
 export enum ContentType {
   RSS = "RSS",
@@ -33,3 +33,5 @@ export interface IContent extends Document {
   createdAt?: Date;
   updatedAt?: Date;
 }
+
+export interface IContentPaginate extends PaginateResult<IContent> {}

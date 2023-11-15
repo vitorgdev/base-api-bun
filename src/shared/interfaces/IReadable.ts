@@ -1,5 +1,7 @@
+import { PaginateResult } from "mongoose";
+
 export interface IReadable {
-    getAll(): Promise<object[]>;
+    getAll(): Promise<PaginateResult<Object>>;
     getOne(): string;
   }
   
